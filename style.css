@@ -20,23 +20,24 @@ body {
 
 /* Фоновый текст */
 .background-text {
-  position: absolute;
-  top: 60px;
+  position: fixed;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 8rem;
+  font-size: 10rem;
   font-weight: 800;
-  color: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.07);
   z-index: 0;
   pointer-events: none;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Контейнер */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
   position: relative;
   z-index: 1;
 }
@@ -44,7 +45,7 @@ body {
 /* Шапка */
 .header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .header h1 {
   font-size: 2rem;
@@ -123,10 +124,10 @@ body {
 /* Футер */
 .footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 40px 20px;
   color: var(--muted);
   font-size: 0.9rem;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 .footer a {
   color: var(--text);
