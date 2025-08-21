@@ -3,443 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HYPER BETON - Прайс-лист</title>
-  <style>
-    :root {
-      --primary: #00162B;
-      --primary-light: #003366;
-      --accent: #FF9E1B;
-      --text: #2d3748;
-      --text-light: #718096;
-      --bg: #ffffff;
-      --border: #e2e8f0;
-      --highlight: #f1f8ff;
-      --shadow: 0 4px 12px rgba(0, 22, 43, 0.15);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-      min-height: 100vh;
-      line-height: 1.6;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--bg);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      color: white;
-      padding: 35px 30px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
-
-    .header h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      letter-spacing: 1.5px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      position: relative;
-      color: #fff;
-    }
-
-    .header p {
-      opacity: 0.9;
-      font-size: 1.1rem;
-      position: relative;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-    }
-
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .price-table th {
-      background: #f8fafc;
-      color: var(--primary);
-      font-weight: 700;
-      padding: 18px 20px;
-      text-align: center;
-      border-bottom: 2px solid var(--border);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .price-table th:first-child {
-      text-align: center;
-      width: 60px;
-    }
-
-    .price-table th:last-child {
-      text-align: center;
-      width: 150px;
-    }
-
-    .price-table td {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background-color 0.2s ease;
-    }
-
-    .price-table tr:hover td {
-      background: var(--highlight);
-    }
-
-    .price-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .price-number {
-      color: var(--primary);
-      font-weight: 500;
-      text-align: center;
-      font-size: 1rem;
-    }
-
-    .price-class {
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .price-grade {
-      color: var(--text-light);
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    .price-value {
-      text-align: center;
-      font-weight: 500;
-      color: var(--primary);
-      font-size: 1rem;
-    }
-
-    .info-section {
-      padding: 25px 30px;
-      background: #f8fafc;
-      border-top: 1px solid var(--border);
-    }
-
-    .info-item {
-      margin-bottom: 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .info-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .info-icon {
-      color: var(--primary);
-      font-size: 1.1rem;
-      margin-top: 2px;
-      min-width: 20px;
-    }
-
-    .info-text {
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .info-text strong {
-      color: var(--primary);
-    }
-
-    .contacts {
-      padding: 25px 30px;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-
-    .contacts h3 {
-      color: var(--primary);
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contacts h3 i {
-      font-size: 1.2rem;
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px 15px;
-      background: #f8fafc;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.3s ease;
-      border: 1px solid var(--border);
-    }
-
-    .contact-card:hover {
-      background: var(--highlight);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 22, 43, 0.1);
-    }
-
-    .contact-card i {
-      font-size: 1.2rem;
-      color: var(--primary);
-      width: 24px;
-    }
-
-    /* Адаптивность */
-    @media (max-width: 768px) {
-      body {
-        padding: 15px;
-      }
-      
-      .header {
-        padding: 25px 20px;
-      }
-      
-      .header h1 {
-        font-size: 2.2rem;
-      }
-      
-      .price-table {
-        font-size: 0.9rem;
-      }
-      
-      .price-table th,
-      .price-table td {
-        padding: 12px 15px;
-      }
-      
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-      
-      .info-section,
-      .contacts {
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header h1 {
-        font-size: 1.8rem;
-      }
-      
-      .price-table {
-        font-size: 0.85rem;
-      }
-      
-      .price-table th,
-      .price-table td {
-        padding: 10px 12px;
-      }
-      
-      .price-grade {
-        display: block;
-        margin-top: 4px;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>HYPER BETON | Прайс-лист</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Фоновый текст -->
+  <div class="background-text">Pricing</div>
+
   <div class="container">
-    <!-- Шапка -->
-    <div class="header">
+    <header class="header">
       <h1>HYPER BETON</h1>
-      <p>Производство и доставка товарного бетона</p>
-    </div>
-    
-    <!-- Таблица цен -->
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>No.</th>
-          <th>Класс, Марка</th>
-          <th>Цена с НДС</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="price-number">1</td>
-          <td>
-            <div class="price-class">В7.5</div>
-            <div class="price-grade">М100</div>
-          </td>
-          <td class="price-value">490,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">2</td>
-          <td>
-            <div class="price-class">В10</div>
-            <div class="price-grade">М150</div>
-          </td>
-          <td class="price-value">510,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">3</td>
-          <td>
-            <div class="price-class">В15</div>
-            <div class="price-grade">М200</div>
-          </td>
-          <td class="price-value">535,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">4</td>
-          <td>
-            <div class="price-class">В20</div>
-            <div class="price-grade">М250</div>
-          </td>
-          <td class="price-value">562,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">5</td>
-          <td>
-            <div class="price-class">В22.5</div>
-            <div class="price-grade">М300</div>
-          </td>
-          <td class="price-value">590,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">6</td>
-          <td>
-            <div class="price-class">В25</div>
-            <div class="price-grade">М350</div>
-          </td>
-          <td class="price-value">620,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">7</td>
-          <td>
-            <div class="price-class">В30</div>
-            <div class="price-grade">М400</div>
-          </td>
-          <td class="price-value">665,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">8</td>
-          <td>
-            <div class="price-class">В35</div>
-            <div class="price-grade">М450</div>
-          </td>
-          <td class="price-value">700,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">9</td>
-          <td>
-            <div class="price-class">В40</div>
-            <div class="price-grade">М550</div>
-          </td>
-          <td class="price-value">735,000 сум</td>
-        </tr>
-        <tr>
-          <td class="price-number">10</td>
-          <td>
-            <div class="price-class">В45</div>
-            <div class="price-grade">М600</div>
-          </td>
-          <td class="price-value">772,000 сум</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <!-- Информация -->
-    <div class="info-section">
-      <div class="info-item">
-        <div class="info-icon">
-          <i class="fas fa-calendar-alt"></i>
-        </div>
-        <div class="info-text">
-          <strong>Срок действия цен:</strong> до 31.08.2025 г.
-        </div>
+      <p>Прайс-лист на бетон</p>
+    </header>
+
+    <!-- Сетка цен -->
+    <div class="price-grid">
+
+      <div class="price-card">
+        <h3 class="plan-title">B7.5 (M100)</h3>
+        <div class="plan-price">490,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
       </div>
-      <div class="info-item">
-        <div class="info-icon">
-          <i class="fas fa-truck"></i>
-        </div>
-        <div class="info-text">
-          <strong>Условия поставки:</strong> с доставкой в радиусе 20 км от завода
-        </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B10 (M150)</h3>
+        <div class="plan-price">510,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
       </div>
-    </div>
-    
-    <!-- Контакты -->
-    <div class="contacts">
-      <h3><i class="fas fa-headset"></i> Контакты для заказа</h3>
-      <div class="contact-methods">
-        <a href="https://t.me/alimov_jasur" class="contact-card" target="_blank">
-          <i class="fab fa-telegram"></i>
-          <span>@alimov_jasur</span>
-        </a>
-        <a href="tel:+998977396164" class="contact-card">
-          <i class="fas fa-phone-alt"></i>
-          <span>+998 97 739-61-64</span>
-        </a>
+
+      <div class="price-card">
+        <h3 class="plan-title">B15 (M200)</h3>
+        <div class="plan-price">535,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
       </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B20 (M250)</h3>
+        <div class="plan-price">562,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B22.5 (M300)</h3>
+        <div class="plan-price">590,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B25 (M350)</h3>
+        <div class="plan-price">620,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B30 (M400)</h3>
+        <div class="plan-price">665,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B35 (M450)</h3>
+        <div class="plan-price">700,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B40 (M550)</h3>
+        <div class="plan-price">735,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
+      <div class="price-card">
+        <h3 class="plan-title">B45 (M600)</h3>
+        <div class="plan-price">772,000 <span>сум/м³</span></div>
+        <a href="#order" class="btn dark">Заказать</a>
+      </div>
+
     </div>
   </div>
 
-  <script>
-    // Простой скрипт для плавного появления
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.price-table tr, .info-item, .contact-card');
-      
-      elements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(10px)';
-        el.style.transition = `all 0.3s ease ${index * 0.1}s`;
-        
-        setTimeout(() => {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, 100);
-      });
-    });
-  </script>
+  <footer class="footer" id="order">
+    <p>Телефон для заказа: <a href="tel:+998977396164">+998 97 739-61-64</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
