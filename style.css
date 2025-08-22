@@ -31,20 +31,18 @@ body {
   text-transform: uppercase;
   white-space: nowrap;
 
-  /* Современный градиент */
+  /* Градиент */
   background: linear-gradient(
     270deg,
-    #ff6ec7,  /* cyber pink */
-    #8f00ff,  /* violet glow */
-    #00eaff,  /* neon aqua */
-    #00ff94,  /* mint green */
-    #ffe600   /* neon yellow */
+    #ff6ec7,
+    #8f00ff,
+    #00eaff,
+    #00ff94,
+    #ffe600
   );
   background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Анимация */
   animation: gradientShift 14s ease infinite;
 }
 
@@ -145,15 +143,61 @@ body {
 /* Футер */
 .footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-top: 60px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
-.footer a {
-  color: var(--text);
+
+.footer .phone {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.footer .phone a {
+  color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
-.footer a:hover {
-  text-decoration: underline;
+.footer .phone a:hover {
+  color: #00eaff;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .background-text {
+    font-size: 5rem;
+    top: 15%;
+  }
+  .container {
+    padding: 50px 15px;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  .plan-price {
+    font-size: 1.3rem;
+  }
+  .btn {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .background-text {
+    font-size: 3rem;
+    top: 12%;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+  }
+  .plan-price {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 9px;
+  }
 }
